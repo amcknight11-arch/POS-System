@@ -127,7 +127,7 @@ def remove_from_cart():
 # Input asking for product name
     items = input("\nEnter Product Name to Remove: ").strip().title()
 
-# Validating if an item exists in the cart
+# Validating if an item exist in the cart
     if items not in cart:
         print("\nInvalid! Item Not Found!")
         return
@@ -150,7 +150,7 @@ def remove_from_cart():
             if quantity_to_remove == cart[items]:
                 removed_quantity = cart[items]
                 
-            # This returns the removed stock to inventory
+            # This returns the removed quantity to inventory
                 products[items]["Stock"] += removed_quantity
         
             # This removes the item completely from the cart
@@ -158,7 +158,7 @@ def remove_from_cart():
                 print(f"\n{removed_quantity} x {items} removed from cart successfully.")
                 break
             else:
-            # This is a partial removal; only the selected quantity will be removed
+            # This is a partial removal; only the entered quantity will be removed
                 cart[items] -= quantity_to_remove
                 
             # Inventory updates immediately after
@@ -284,7 +284,6 @@ def generate_receipt(subtotal, discount, tax, total, payments, change):
         print(f"{items.upper():<18} {quantity} @ ${price:<8,.2f} = ${quantity * price:,.2f}")
 
 # Details that Will Print on Receipt
-
     print("============================================")
     print(f"Subtotal:                         ${subtotal:<8,.2f}")
     if discount > 0:
